@@ -5,7 +5,7 @@
       {
         "targets": {},
         "useBuiltIns": "usage",
-        "corejs": "3.6.5"
+        "corejs": "3.49.0"
       }
     ]
   ]
