@@ -8,6 +8,10 @@
       "require": "./lib/index.js"
     }
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "babel src --out-dir lib"
