@@ -9,6 +9,9 @@
       "require": "./lib/index.js"
     }
   },
+  "browserslist": [
+    "> 0.5%, last 2 versions"
+  ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
