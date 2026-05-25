@@ -18,7 +18,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "babel src --out-dir lib --extensions \".ts,.tsx,.js,.jsx\"",
+    "type-check": "tsc",
+    "build": "npm run type-check && babel src --out-dir lib --extensions \".ts,.tsx,.js,.jsx\"",
     "prepare": "husky"
   },
   "files": [
@@ -47,6 +48,7 @@
     "jiti": "^2.7.0",
     "lint-staged": "^16.4.0",
     "prettier": "^3.8.3",
+    "typescript": "^6.0.3",
     "typescript-eslint": "^8.59.4"
   },
   "dependencies": {
