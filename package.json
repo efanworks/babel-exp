@@ -2,6 +2,7 @@
   "name": "@efanworks/babel-exp",
   "version": "1.0.1-alpha.1",
   "description": "",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./lib/index.js",
@@ -14,18 +15,33 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "babel src --out-dir lib"
+    "compile": "babel src --out-dir lib --extensions \".ts,.tsx,.js,.jsx\"",
+    "prepare": "husky"
   },
   "files": [
     "lib"
   ],
+  "lint-staged": {
+    "*.{js,ts,mjs,mts}": [
+      "eslint --fix"
+    ]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.28.6",
     "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.5"
+    "@babel/plugin-transform-arrow-functions": "^7.27.1",
+    "@babel/preset-env": "^7.29.5",
+    "@babel/preset-typescript": "^7.28.5",
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.4.0",
+    "globals": "^17.6.0",
+    "husky": "^9.1.7",
+    "jiti": "^2.7.0",
+    "lint-staged": "^16.4.0",
+    "typescript-eslint": "^8.59.4"
   },
   "dependencies": {
     "core-js": "^3.49.0"
