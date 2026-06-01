@@ -23,8 +23,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "tsc --noEmit",
-    "build": "tsc && babel src --out-dir lib --extensions \".ts,.tsx,.js,.jsx\"",
-    "prepare": "husky"
+    "build": "rm -rf lib && tsc && babel src --out-dir lib --extensions \".ts,.tsx,.js,.jsx\"",
+    "prepare": "husky",
+    "prepublishOnly": "npm run build"
   },
   "files": [
     "lib"
