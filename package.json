@@ -59,7 +59,8 @@
     "typescript-eslint": "^8.59.4"
   },
   "dependencies": {
-    "core-js": "^3.49.0"
+    "core-js": "^3.49.0",
+    "uuid": "^14.0.0"
   },
   "peerDependencies": {
     "react": ">=19.2.4"
