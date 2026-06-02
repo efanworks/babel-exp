@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { TasksContext } from "./tasksContext";
+import { useTasks } from "../../hooks/useTasks";
 import { TaskItem } from "./TaskItem";
 
-export function TasksList() {
-  const tasks = useContext(TasksContext);
+export const TasksList = () => {
+  const tasks = useTasks((state) => state.tasks);
 
   return (
     <ul>
@@ -12,4 +11,4 @@ export function TasksList() {
       ))}
     </ul>
   );
-}
+};
