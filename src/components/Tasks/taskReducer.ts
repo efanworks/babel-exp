@@ -6,24 +6,10 @@ export interface Task {
   text: string;
 }
 
-type AddTaskPayload = {
-  text: string;
-};
-
-type ChangeTaskPayload = {
-  id: string;
-  done?: boolean;
-  text?: string;
-};
-
-type DeleteTaskPayload = {
-  id: string;
-};
-
 export type TasksAction =
-  | { type: "add"; payload: AddTaskPayload }
-  | { type: "change"; payload: ChangeTaskPayload }
-  | { type: "delete"; payload: DeleteTaskPayload };
+  | { type: "add"; payload: { text: string } }
+  | { type: "change"; payload: { id: string; done?: boolean; text?: string } }
+  | { type: "delete"; payload: { id: string } };
 
 export function taskReducer(tasks: Task[], action: TasksAction) {
   const { type, payload } = action;
