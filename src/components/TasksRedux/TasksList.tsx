@@ -1,10 +1,8 @@
-import { useSelector } from "react-redux";
-import { type RootState } from "./store";
-import { type Task } from "./tasksSlice";
 import { TaskItem } from "./TaskItem";
+import { useAppSelector } from "./hooks";
 
 export const TasksList = () => {
-  const tasks = useSelector<RootState, Task[]>((state) => state.tasks.tasks);
+  const tasks = useAppSelector(state => state.tasks.tasks);
 
   return (
     <ul>

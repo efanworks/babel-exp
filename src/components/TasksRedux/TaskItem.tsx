@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { changeTask, deleteTask, type Task } from "./tasksSlice";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "./hooks";
 
 export const TaskItem = ({ task }: { task: Task }) => {
   const [editing, setEditing] = useState(false);
   const [value, setValue] = useState(task.text);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleSave = () => {
     dispatch(

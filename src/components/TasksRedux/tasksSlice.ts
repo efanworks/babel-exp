@@ -7,15 +7,17 @@ export type Task = {
   text: string;
 };
 
-export type Tasks = {
+export type TasksState = {
   tasks: Task[];
+};
+
+const initialState: TasksState = {
+  tasks: [],
 };
 
 const tasksSlice = createSlice({
   name: "tasks",
-  initialState: {
-    tasks: [],
-  } as Tasks,
+  initialState,
   reducers: {
     add: (state, action: PayloadAction<{ text: string }>) => {
       state.tasks.push({

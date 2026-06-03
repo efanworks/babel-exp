@@ -1,10 +1,10 @@
-import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { addTask } from "./tasksSlice";
+import { useAppDispatch } from "./hooks";
 
 export const AddTask = () => {
   const [newTaskText, setNewTaskText] = useState("");
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleAddTask = () => {
     dispatch(addTask({ text: newTaskText }));
