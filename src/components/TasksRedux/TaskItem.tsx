@@ -34,7 +34,9 @@ export const TaskItem = ({ task }: { task: Task }) => {
           <button onClick={() => setEditing(true)}>edit</button>
         </>
       )}
-      <button onClick={() => deleteTask({ id: task.id })}>delete</button>
+      <button onClick={() => dispatch(deleteTask({ id: task.id }))}>
+        delete
+      </button>
     </li>
   );
 };
