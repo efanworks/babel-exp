@@ -4,6 +4,7 @@ import { TaskItem } from "./TaskItem";
 
 export const TasksList = () => {
   const tasks = useSelector<Tasks, Task[]>((state) => state.tasks);
+  console.log(tasks);
 
   return (
     <ul>
