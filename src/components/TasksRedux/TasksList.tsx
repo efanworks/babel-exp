@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import { type Tasks, type Task } from "./tasksSlice";
+import { type RootState } from "./store";
+import { type Task } from "./tasksSlice";
 import { TaskItem } from "./TaskItem";
 
 export const TasksList = () => {
-  const tasks = useSelector<Tasks, Task[]>((state) => state.tasks);
-  console.log(tasks);
+  const tasks = useSelector<RootState, Task[]>((state) => state.tasks.tasks);
 
   return (
     <ul>
