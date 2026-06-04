@@ -4,6 +4,7 @@ import { TasksList } from "./TasksList";
 import { store } from "./store";
 
 export const TasksRedux = () => {
+
   return (
     <Provider store={store}>
       <AddTask />

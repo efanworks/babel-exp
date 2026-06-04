@@ -25,7 +25,8 @@
     "type-check": "tsc --noEmit",
     "build": "rm -rf lib && tsc && babel src --out-dir lib --extensions \".ts,.tsx,.js,.jsx\"",
     "prepare": "husky",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "service-start": "node --import tsx src/service.ts"
   },
   "files": [
     "lib"
@@ -47,7 +48,9 @@
     "@babel/preset-react": "^7.29.7",
     "@babel/preset-typescript": "^7.28.5",
     "@eslint/js": "^10.0.1",
+    "@types/express": "^5.0.6",
     "@types/react": "^19.2.15",
+    "@types/uuid": "^10.0.0",
     "eslint": "^10.4.0",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^17.6.0",
@@ -55,11 +58,15 @@
     "jiti": "^2.7.0",
     "lint-staged": "^16.4.0",
     "prettier": "^3.8.3",
+    "tsx": "^4.22.4",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.59.4"
   },
   "dependencies": {
+    "@types/cors": "^2.8.19",
     "core-js": "^3.49.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
     "uuid": "^14.0.0",
     "zustand": "^5.0.14"
   },

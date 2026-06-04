@@ -1,5 +1,10 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { v4 as uuidv4 } from "uuid";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import {
+  fetchTasks as fetchTasksAPI,
+  addTask as addTaskAPI,
+  changeTask as changeTaskAPI,
+  deleteTask as deleteTaskAPI,
+} from "./api";
 
 export type Task = {
   id: string;
@@ -15,36 +20,62 @@ const initialState: TasksState = {
   tasks: [],
 };
 
+export const fetchTasks = createAsyncThunk("tasks/fetchTasks", async () => {
+  const tasks = await fetchTasksAPI();
+  return tasks;
+});
+
+export const addTask = createAsyncThunk(
+  "tasks/addTask",
+  async (text: string) => {
+    const task = await addTaskAPI(text);
+    return task;
+  },
+);
+
+export const changeTask = createAsyncThunk(
+  "tasks/changeTask",
+  async ({ id, text, done }: { id: string; text?: string; done?: boolean }) => {
+    const updates = Object.assign(
+      {},
+      text ? { text } : {},
+      done ? { done } : {},
+    );
+    const task = await changeTaskAPI(id, updates);
+    return task;
+  },
+);
+
+export const deleteTask = createAsyncThunk(
+  "tasks/deleteTask",
+  async (id: string) => {
+    await deleteTaskAPI(id);
+    return id;
+  },
+);
+
 const tasksSlice = createSlice({
   name: "tasks",
   initialState,
-  reducers: {
-    add: (state, action: PayloadAction<{ text: string }>) => {
-      state.tasks.push({
-        id: uuidv4(),
-        done: false,
-        text: action.payload.text,
+  reducers: {},
+  extraReducers: (build) => {
+    build
+      .addCase(fetchTasks.fulfilled, (state, action) => {
+        state.tasks = action.payload;
+      })
+      .addCase(addTask.fulfilled, (state, action) => {
+        state.tasks.push(action.payload);
+      })
+      .addCase(changeTask.fulfilled, (state, action) => {
+        const task = state.tasks.find((t) => t.id === action.payload.id);
+        if (task) {
+          Object.assign(task, action.payload);
+        }
+      })
+      .addCase(deleteTask.fulfilled, (state, action) => {
+        state.tasks = state.tasks.filter((t) => t.id !== action.payload);
       });
-    },
-    change: (
-      state,
-      action: PayloadAction<{ id: string; text?: string; done?: boolean }>,
-    ) => {
-      const task = state.tasks.find((t) => t.id === action.payload.id);
-      if (task) {
-        Object.assign(task, action.payload);
-      }
-    },
-    delete: (state, action: PayloadAction<{ id: string }>) => {
-      state.tasks = state.tasks.filter((t) => t.id !== action.payload.id);
-    },
   },
 });
-
-export const {
-  add: addTask,
-  change: changeTask,
-  delete: deleteTask,
-} = tasksSlice.actions;
 
 export default tasksSlice.reducer;

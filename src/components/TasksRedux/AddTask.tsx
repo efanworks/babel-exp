@@ -7,7 +7,7 @@ export const AddTask = () => {
   const dispatch = useAppDispatch();
 
   const handleAddTask = () => {
-    dispatch(addTask({ text: newTaskText }));
+    dispatch(addTask(newTaskText));
     setNewTaskText("");
   };
 
