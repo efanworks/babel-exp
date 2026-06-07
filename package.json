@@ -67,6 +67,7 @@
     "core-js": "^3.49.0",
     "cors": "^2.8.6",
     "express": "^5.2.1",
+    "react-error-boundary": "^6.1.2",
     "uuid": "^14.0.0",
     "zustand": "^5.0.14"
   },

@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useTasks } from "../../hooks/useTasks";
+import { useTasks } from "./useTasks";
 
 export const AddTask = () => {
   const [newTaskText, setNewTaskText] = useState("");
-  const addTask = useTasks(state => state.addTask);
+  const addTask = useTasks((state) => state.addTask);
 
   const handleAddTask = () => {
     addTask(newTaskText);
@@ -21,3 +21,5 @@ export const AddTask = () => {
     </>
   );
 };
+
+export default AddTask;

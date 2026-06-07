@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useTasks, type Task } from "../../hooks/useTasks";
+import { useTasks, type Task } from "./useTasks";
 
 export const TaskItem = ({ task }: { task: Task }) => {
   const [editing, setEditing] = useState(false);
