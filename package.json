@@ -27,7 +27,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "tsc --noEmit",
-    "build:react": "rm -rf lib && tsc && babel src --out-dir lib --extensions \".ts,.tsx,.js,.jsx\"",
+    "build:react": "rm -rf lib && tsc && babel src --out-dir lib --extensions \".ts,.tsx,.js,.jsx\" --ignore \"src/vueComponents/**/*\"",
     "build:vue": "vite build --config vite.vue.config.ts",
     "build:all": "npm run build:react && npm run build:vue",
     "prepare": "husky",
