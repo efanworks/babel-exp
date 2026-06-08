@@ -77,6 +77,8 @@
     "core-js": "^3.49.0",
     "cors": "^2.8.6",
     "express": "^5.2.1",
+    "mobx": "^6.16.1",
+    "mobx-react-lite": "^4.1.1",
     "pinia": "^3.0.4",
     "react-error-boundary": "^6.1.2",
     "uuid": "^14.0.0",
