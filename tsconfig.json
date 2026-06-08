@@ -1,6 +1,6 @@
 {
   "include": ["src"],
-  // Visit https://aka.ms/tsconfig to read more about this file
+  "exclude": ["src/vueComponents"],
   "compilerOptions": {
     // File Layout
     "rootDir": "./src",
@@ -39,7 +39,7 @@
     // Recommended Options
     "noEmit": false,
     "strict": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,

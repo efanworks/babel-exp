@@ -11,6 +11,10 @@
     "./components": {
       "import": "./lib/components/index.js",
       "types": "./lib/types/components/index.d.ts"
+    },
+    "./mount": {
+      "import": "./lib/vueComponents/index.js",
+      "types": "./lib/vueComponents/index.d.ts"
     }
   },
   "browserslist": [
@@ -23,9 +27,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "tsc --noEmit",
-    "build": "rm -rf lib && tsc && babel src --out-dir lib --extensions \".ts,.tsx,.js,.jsx\"",
+    "build:react": "rm -rf lib && tsc && babel src --out-dir lib --extensions \".ts,.tsx,.js,.jsx\"",
+    "build:vue": "vite build --config vite.vue.config.ts",
+    "build:all": "npm run build:react && npm run build:vue",
     "prepare": "husky",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "npm run build:all",
     "service-start": "node --import tsx src/service.ts"
   },
   "files": [
@@ -51,6 +57,8 @@
     "@types/express": "^5.0.6",
     "@types/react": "^19.2.15",
     "@types/uuid": "^10.0.0",
+    "@vitejs/plugin-vue": "^6.0.7",
+    "@vue/language-core": "^3.3.4",
     "eslint": "^10.4.0",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^17.6.0",
@@ -60,15 +68,19 @@
     "prettier": "^3.8.3",
     "tsx": "^4.22.4",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.59.4"
+    "typescript-eslint": "^8.59.4",
+    "vite": "^8.0.16",
+    "vue-tsc": "^3.3.4"
   },
   "dependencies": {
     "@types/cors": "^2.8.19",
     "core-js": "^3.49.0",
     "cors": "^2.8.6",
     "express": "^5.2.1",
+    "pinia": "^3.0.4",
     "react-error-boundary": "^6.1.2",
     "uuid": "^14.0.0",
+    "vue": "^3.5.35",
     "zustand": "^5.0.14"
   },
   "peerDependencies": {
