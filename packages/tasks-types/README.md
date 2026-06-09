@@ -1,0 +1,1 @@
+因该package只提供类型信息，直接选择tsc编译生成declare文件，不需要用babel转换
