@@ -1,28 +1,17 @@
-import { lazy, Suspense, useEffect, useState } from "react";
-import { TasksList } from "./TasksList";
-import { delayImport } from "../../utils/delayImport";
 import { ErrorBoundary } from "react-error-boundary";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { TasksList } from "./TasksList";
+import { AddTask } from "./AddTask";
 
-const AddTask = lazy(() => delayImport(import("./AddTask")));
+const queryClient = new QueryClient();
 
 export const TasksZustand = () => {
-  const [isAdd, setIsAdd] = useState(false);
-
-  const handleAdd = () => {
-    setIsAdd(!isAdd);
-  };
-
   return (
-    <>
-      <button onClick={handleAdd}>isAdd</button>
-      {isAdd && (
-        <Suspense fallback={<div>loading...</div>}>
-          <AddTask />
-        </Suspense>
-      )}
+    <QueryClientProvider client={queryClient}>
       <ErrorBoundary fallbackRender={() => <div>Page Not Found</div>}>
+        <AddTask />
         <TasksList />
       </ErrorBoundary>
-    </>
+    </QueryClientProvider>
   );
 };

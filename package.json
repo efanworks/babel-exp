@@ -54,6 +54,7 @@
     "@babel/preset-react": "^7.29.7",
     "@babel/preset-typescript": "^7.28.5",
     "@eslint/js": "^10.0.1",
+    "@tanstack/eslint-plugin-query": "^5.101.0",
     "@types/express": "^5.0.6",
     "@types/react": "^19.2.15",
     "@types/uuid": "^10.0.0",
@@ -73,6 +74,7 @@
     "vue-tsc": "^3.3.4"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.101.0",
     "@types/cors": "^2.8.19",
     "core-js": "^3.49.0",
     "cors": "^2.8.6",

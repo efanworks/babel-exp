@@ -1,12 +1,22 @@
 import { useState } from "react";
-import { useTasks } from "./useTasks";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { addTask as addTaskAPI } from "./api";
 
 export const AddTask = () => {
   const [newTaskText, setNewTaskText] = useState("");
-  const addTask = useTasks((state) => state.addTask);
+  const queryClient = useQueryClient();
 
-  const handleAddTask = () => {
-    addTask(newTaskText);
+  const mutation = useMutation({
+    mutationFn: async (text: string) => await addTaskAPI(text),
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["tasks"]
+      });
+    }
+  });
+
+  const handleAddTask = async () => {
+    await mutation.mutateAsync(newTaskText);
     setNewTaskText("");
   };
 

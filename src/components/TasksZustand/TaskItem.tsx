@@ -1,18 +1,36 @@
 import { useState } from "react";
-import { useTasks, type Task } from "./useTasks";
+import { type Task } from "./useTasks";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { changeTask, deleteTask } from "./api";
 
 export const TaskItem = ({ task }: { task: Task }) => {
   const [editing, setEditing] = useState(false);
   const [value, setValue] = useState(task.text);
-  const changeTask = useTasks((state) => state.changeTask);
-  const deleteTask = useTasks((state) => state.deleteTask);
 
-  const handleSave = () => {
-    changeTask({
-      id: task.id,
-      text: value
-    });
+  const queryClient = useQueryClient();
+
+  const editMutation = useMutation({
+    mutationFn: async ({ id, text }: { id: string; text: string }) =>
+      await changeTask(id, { text }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["tasks"] });
+    }
+  });
+
+  const deleteMutation = useMutation({
+    mutationFn: async (id: string) => await deleteTask(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["tasks"] });
+    }
+  });
+
+  const handleSave = async () => {
+    await editMutation.mutateAsync({ id: task.id, text: value });
     setEditing(false);
+  };
+
+  const handleDelete = async () => {
+    await deleteMutation.mutateAsync(task.id);
   };
 
   return (
@@ -32,7 +50,7 @@ export const TaskItem = ({ task }: { task: Task }) => {
           <button onClick={() => setEditing(true)}>edit</button>
         </>
       )}
-      <button onClick={() => deleteTask(task.id)}>delete</button>
+      <button onClick={handleDelete}>delete</button>
     </li>
   );
 };
