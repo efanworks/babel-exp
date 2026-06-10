@@ -1,0 +1,18 @@
+.layout {
+  min-height: 100vh;
+}
+
+.sider {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  overflow: auto;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.06);
+}
+
+.content {
+  margin-left: 200px;
+  padding: 24px;
+}

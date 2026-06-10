@@ -26,6 +26,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
     "type-check": "tsc --noEmit",
     "build:react": "rm -rf lib && tsc && babel src --out-dir lib --extensions \".ts,.tsx,.js,.jsx\" --ignore \"src/vueComponents/**/*\"",
     "build:vue": "vite build --config vite.vue.config.ts",
@@ -56,8 +57,11 @@
     "@eslint/js": "^10.0.1",
     "@tanstack/eslint-plugin-query": "^5.101.0",
     "@types/express": "^5.0.6",
-    "@types/react": "^19.2.15",
+    "@types/node": "^25.9.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
     "@types/uuid": "^10.0.0",
+    "@vitejs/plugin-react": "^6.0.2",
     "@vitejs/plugin-vue": "^6.0.7",
     "@vue/language-core": "^3.3.4",
     "eslint": "^10.4.0",
@@ -67,6 +71,7 @@
     "jiti": "^2.7.0",
     "lint-staged": "^16.4.0",
     "prettier": "^3.8.3",
+    "sass": "^1.100.0",
     "tsx": "^4.22.4",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.59.4",
@@ -74,23 +79,23 @@
     "vue-tsc": "^3.3.4"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.12.0",
     "@tanstack/react-query": "^5.101.0",
     "@types/cors": "^2.8.19",
+    "antd": "^6.4.3",
     "core-js": "^3.49.0",
     "cors": "^2.8.6",
     "express": "^5.2.1",
     "mobx": "^6.16.1",
     "mobx-react-lite": "^4.1.1",
     "pinia": "^3.0.4",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
     "react-error-boundary": "^6.1.2",
+    "react-router-dom": "^7.17.0",
     "uuid": "^14.0.0",
     "vue": "^3.5.35",
     "zustand": "^5.0.14"
-  },
-  "peerDependencies": {
-    "@reduxjs/toolkit": "2.12.0",
-    "react": "19.2.7",
-    "react-redux": "9.3.0"
   },
   "workspaces": [
     "packages/*"
