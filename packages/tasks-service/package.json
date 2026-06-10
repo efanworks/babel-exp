@@ -1,6 +1,6 @@
 {
   "name": "@efanworks/tasks-service",
-  "version": "1.0.1-alpha.1",
+  "version": "1.0.1-alpha.2",
   "description": "",
   "main": "service.ts",
   "scripts": {
@@ -17,5 +17,8 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
+  },
+  "devDependencies": {
+    "@efanworks/tasks-types": "^1.0.1-alpha.1"
   }
 }
