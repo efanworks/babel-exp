@@ -1,0 +1,21 @@
+{
+  "name": "@efanworks/tasks-service",
+  "version": "1.0.1-alpha.1",
+  "description": "",
+  "main": "service.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --import tsx src/service.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "uuid": "^14.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  }
+}
