@@ -17,6 +17,7 @@
     "clean": "rm -rf dist"
   },
   "devDependencies": {
+    "@efanworks/tasks-types": "^1.0.1-alpha.1",
     "typescript": "^6.0.3"
   },
   "keywords": [],
