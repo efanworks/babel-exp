@@ -28,7 +28,7 @@ class Counter {
     this.listeners.push(listener);
 
     return () => {
-      this.listeners.filter((l) => l !== listener);
+      this.listeners = this.listeners.filter((l) => l !== listener);
     };
   };
   getSnapShot = () => this.count;
