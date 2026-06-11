@@ -6,7 +6,8 @@ import s from "./index.module.scss";
 const { Sider, Content } = Layout;
 
 const menuItems = [
-  { key: "/tasks-zustand", label: "Tasks for Zustand", path: "/" },
+  { key: "/tasks-zustand", label: "Tasks for Zustand", path: "/tasks-zustand" },
+  {key: "/useSyncExternalTest", label: "测试外部store", path: "/useSyncExternalTest"}
 ];
 
 export default function AppLayout() {
