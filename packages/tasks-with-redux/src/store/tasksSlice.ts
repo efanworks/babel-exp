@@ -13,9 +13,10 @@ const initialState: {
   tasks: [],
 };
 
-export const fetchTasks = createAsyncThunk("tasks/fetchTasks", async () => {
-  return await fetchTasksAPI();
-});
+export const fetchTasks = createAsyncThunk(
+  "tasks/fetchTasks",
+  async () => await fetchTasksAPI(),
+);
 
 export const addTask = createAsyncThunk(
   "tasks/addTask",
