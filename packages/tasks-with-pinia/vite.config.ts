@@ -1,20 +1,21 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { resolve } from "path";
+import pkg from "./package.json" with { type: "json" };
 
 export default defineConfig({
   plugins: [vue()],
   build: {
-    outDir: "lib/vueComponents",
+    outDir: "dist",
     sourcemap: true,
     lib: {
-      entry: resolve(__dirname, "src/vueComponents/index.ts"),
-      name: "EfanworksVueComponents",
-      formats: ["es"],
+      entry: resolve(__dirname, "src/index.ts"),
+      name: "tasks-with-pinia",
+      formats: ["es", "cjs"],
       fileName: "index",
     },
     rollupOptions: {
-      external: ["vue"],
+      external: Object.keys(pkg.devDependencies ?? {}),
       output: {
         globals: {
           vue: "Vue",

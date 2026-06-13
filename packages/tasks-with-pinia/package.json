@@ -1,0 +1,31 @@
+{
+  "name": "@efanworks/tasks-with-pinia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build --config vite.config.ts && tsc"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pinia": "^3.0.4",
+    "vue": "^3.5.38",
+    "@efanworks/tasks-api": "^1.0.1-alpha.0"
+  },
+  "devDependencies": {
+    "@efanworks/tasks-types": "^1.0.1-alpha.1"
+  }
+}
