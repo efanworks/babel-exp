@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf dist && rollup --config rollup.config.js && tsc"
+    "build": "rm -rf dist && rollup --config rollup.config.js && tsc",
+    "prepublishOnly": "npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,9 @@
       "require": "./dist/cjs/index.cjs"
     }
   },
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
