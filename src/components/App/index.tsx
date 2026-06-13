@@ -1,6 +1,6 @@
 import { Layout, Menu } from "antd";
 import { useNavigate, useLocation, useRoutes } from "react-router-dom";
-import { routes } from "../routes";
+import { routes } from "../../routes";
 import s from "./index.module.scss";
 
 const { Sider, Content } = Layout;
