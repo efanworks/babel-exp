@@ -33,7 +33,7 @@
     "build:all": "npm run build:react && npm run build:vue",
     "prepare": "husky",
     "prepublishOnly": "npm run build:all",
-    "service-start": "node --import tsx src/service.ts"
+    "service": "npm run start -w packages/tasks-service"
   },
   "files": [
     "lib"

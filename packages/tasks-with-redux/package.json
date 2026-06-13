@@ -1,13 +1,20 @@
 {
-  "name": "tasks-with-redux",
-  "version": "1.0.1-alpha.0",
+  "name": "@efanworks/tasks-with-redux",
+  "version": "1.0.2-alpha.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist && rollup --config rollup.config.js && tsc"
   },
   "author": "",
   "license": "ISC",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs"
+    }
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
@@ -15,9 +22,16 @@
   "dependencies": {
     "@efanworks/tasks-api": "^1.0.1-alpha.0",
     "@reduxjs/toolkit": "^2.12.0",
+    "react-error-boundary": "^6.1.2",
     "react-redux": "^9.3.0"
   },
   "devDependencies": {
-    "@efanworks/tasks-types": "^1.0.1-alpha.1"
+    "@babel/preset-env": "^7.29.7",
+    "@babel/preset-react": "^7.29.7",
+    "@babel/preset-typescript": "^7.29.7",
+    "@efanworks/tasks-types": "^1.0.1-alpha.1",
+    "@rollup/plugin-babel": "^7.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "rollup": "^4.61.1"
   }
 }

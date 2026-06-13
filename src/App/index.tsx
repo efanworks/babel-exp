@@ -7,7 +7,16 @@ const { Sider, Content } = Layout;
 
 const menuItems = [
   { key: "/tasks-zustand", label: "Tasks for Zustand", path: "/tasks-zustand" },
-  {key: "/useSyncExternalTest", label: "测试外部store", path: "/useSyncExternalTest"}
+  {
+    key: "/useSyncExternalTest",
+    label: "External store",
+    path: "/useSyncExternalTest"
+  },
+  {
+    key: "/tasks-with-redux",
+    label: "Tasks for Redux",
+    path: "/tasks-with-redux"
+  }
 ];
 
 export default function AppLayout() {
