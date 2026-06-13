@@ -31,6 +31,7 @@
     "build:react": "rm -rf lib && tsc && babel src --out-dir lib --extensions \".ts,.tsx,.js,.jsx\" --ignore \"src/vueComponents/**/*\"",
     "build:vue": "vite build --config vite.vue.config.ts",
     "build:all": "npm run build:react && npm run build:vue",
+    "build": "npm run build --workspaces --if-present",
     "prepare": "husky",
     "prepublishOnly": "npm run build:all",
     "service": "npm run start -w packages/tasks-service"
