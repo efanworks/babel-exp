@@ -2,37 +2,49 @@
 
 ## 项目概述
 
-这是一个 monorepo 项目，使用 npm workspaces 管理多个子包。主项目是一个包含 React 和 Vue 组件的库。
+这是一个 monorepo 项目，使用 npm workspaces 管理多个子包。主项目使用 Vite 开发，包含 React 组件库和多个独立发布的 workspace 子包。
 
 ## 项目结构
 
 ```
 babel-exp/
-├── src/                    # 源代码
-│   ├── components/         # React 组件
-│   ├── vueComponents/      # Vue 组件
-│   ├── utils/              # 工具函数
-│   └── service.ts          # Express 服务入口
-├── lib/                    # 构建输出目录
-├── packages/               # 子包 (workspaces)
-│   ├── tasks-api/          # Task API 封装
-│   ├── tasks-types/        # 类型定义
-│   └── with-zustand/       # Zustand 示例
-└── package.json            # 根 package.json
+├── src/                        # 主项目源代码 (Vite)
+│   ├── components/             # React 组件
+│   │   ├── App/                # 主应用组件
+│   │   └── Mounter/            # 通用组件挂载器
+│   ├── index.tsx               # 入口文件
+│   ├── routes.ts               # 路由配置
+│   ├── index.module.scss       # 入口样式
+│   └── global.d.ts             # 全局类型声明
+├── packages/                   # 子包 (workspaces)
+│   ├── tasks-api/              # Task API 封装 (TypeScript 构建)
+│   ├── tasks-types/            # 类型定义 (TypeScript 构建)
+│   ├── tasks-service/          # Express 后端服务 (tsx 运行)
+│   ├── tasks-with-pinia/       # Vue + Pinia 状态管理 (Vite 构建)
+│   ├── tasks-with-redux/       # React + Redux Toolkit (Rollup 构建)
+│   └── tasks-with-zustand/     # React + Zustand (tsup 构建)
+├── vite.config.ts              # Vite 配置
+├── babel.config.json           # Babel 配置
+├── eslint.config.ts            # ESLint 配置
+├── tsconfig.json               # TypeScript 配置
+└── index.html                  # Vite HTML 入口
 ```
 
 ## 构建命令
 
 | 命令 | 说明 |
 |------|------|
-| `npm run build:react` | 构建 React 组件 (Babel) |
-| `npm run build:vue` | 构建 Vue 组件 (Vite) |
-| `npm run build:all` | 构建全部 |
-| `npm run service-start` | 启动 Express 服务 |
+| `npm run dev` | 启动 Vite 开发服务器 (端口 3000) |
+| `npm run build` | 构建所有 workspace 包 |
+| `npm run type-check` | TypeScript 类型检查 (`tsc --noEmit`) |
+| `npm run service` | 启动 Express 后端服务 |
+| `npm run prepare` | 初始化 Husky git hooks |
 
 ## 注意事项
 
 - 依赖安装在根目录，npm 会自动提升子包依赖
 - 子包无需单独 `npm install`
 - lock 文件只在根目录
-- 构建输出到 `lib/` 目录
+- 主项目构建输出到 `dist/` 目录
+- 已配置 Husky + lint-staged 自动格式化 (Prettier + ESLint)
+- 如需构建单个子包，可在对应包目录下执行 `npm run build`
