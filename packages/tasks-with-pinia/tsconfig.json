@@ -3,15 +3,19 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "lib": ["ESNext", "DOM"],
+    "jsx": "preserve",
     "declaration": true,
     "declarationMap": true,
     "emitDeclarationOnly": true,
+    "declarationDir": "dist/types",
     "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,
     "skipLibCheck": true,
-    "noEmit": false
+    "noEmit": false,
+    "esModuleInterop": true,
+    "ignoreDeprecations": "6.0",
+    "types": ["vite/client"]
   },
   "include": ["src/**/*"]
 }
