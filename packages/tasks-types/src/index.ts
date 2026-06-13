@@ -4,4 +4,7 @@ export type Task = {
   text: string;
 };
 
-export type TaskList = Task[];
+export type MountedFn<T extends string = string> = (
+  root: HTMLDivElement | null,
+  path?: T,
+) => void;

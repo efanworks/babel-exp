@@ -2,11 +2,10 @@
   "name": "@efanworks/tasks-types",
   "version": "1.0.1-alpha.1",
   "description": "Types for tasks",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.d.ts"
     }
   },
   "files": [

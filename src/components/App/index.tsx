@@ -16,6 +16,11 @@ const menuItems = [
     key: "/tasks-with-redux",
     label: "Tasks for Redux",
     path: "/tasks-with-redux"
+  },
+  {
+    key: "/tasks-with-pinia",
+    label: "Tasks for Pinia",
+    path: "/tasks-with-pinia"
   }
 ];
 
