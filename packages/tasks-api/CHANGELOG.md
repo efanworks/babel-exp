@@ -1,5 +1,11 @@
 # @efanworks/tasks-api
 
+## 1.0.2
+
+### Patch Changes
+
+- b6c75dd: 更新依赖
+
 ## 1.0.2-alpha.0
 
 ### Patch Changes
