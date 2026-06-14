@@ -1,12 +1,12 @@
 # babel-exp
 
-一个关于 **npm workspaces 工程化实践**与**前端状态管理库对比**的实验项目。
+一个关于 **pnpm workspaces 工程化实践**与**前端状态管理库对比**的实验项目。
 
 ---
 
 ## 🎯 这个项目在想什么
 
-### 1. npm workspaces 的全链路工程化怎么搭
+### 1. pnpm workspaces 的全链路工程化怎么搭
 
 - **Workspaces 管理** — monorepo 下多包如何组织、依赖如何提升、版本如何协调
 - **版本与发布** — 多包依赖版本的管理策略（workspace 协议、Changesets 版本管理）
@@ -112,20 +112,20 @@ babel-exp/
 ## 🚀 快速开始
 
 ```bash
-# 安装依赖（根目录安装，workspaces 自动提升）
-npm install
+# 安装依赖（根目录安装，workspaces 自动通过 symlink 链接）
+pnpm install
 
 # 启动开发服务器（Vite，端口 3000）
-npm run dev
+pnpm dev
 
 # 启动后端服务（端口 3010）
-npm run service
+pnpm service
 
 # 类型检查全部代码
-npm run type-check
+pnpm type-check
 
 # 构建所有 workspace 包
-npm run build
+pnpm build
 ```
 
 然后访问 http://localhost:3000，各个路由对应不同的状态库实现：
@@ -156,11 +156,15 @@ npm run build
 
 ## 📐 版本管理策略
 
-本项目使用 **npm workspaces** 管理内部依赖，当前所有包依赖使用 `^` semver 范围声明。
+本项目使用 **pnpm workspaces** 管理内部依赖，通过 `pnpm-workspace.yaml` 声明工作区。内部包之间使用 `workspace:^` 协议声明依赖，配合 Changesets 在发布时自动转换为实际版本号。
 
-> ⚠️ 当前状态：内部依赖为硬编码的 npm 版本字符串（如 `^1.0.1-alpha.1`）。  
-> **推荐升级方向**：改用 `workspace:^` 协议配合 Changesets，实现依赖版本的自动化管理与发布。
->
+```yaml
+# pnpm-workspace.yaml
+packages:
+  - 'packages/*'
+```
+
+> Changesets 发布时会将 `workspace:^` 自动替换为对应的 npm 版本范围（如 `^1.0.2`）。
 > 详见 [Changesets 官方文档](https://github.com/changesets/changesets)。
 
 ### 依赖关系图
@@ -181,11 +185,11 @@ tasks-api (API 请求层)
 
 | 命令 | 说明 |
 |------|------|
-| `npm run dev` | 启动 Vite 开发服务器 (端口 3000) |
-| `npm run build` | 构建所有 workspace 包 |
-| `npm run type-check` | TypeScript 类型检查 |
-| `npm run service` | 启动 Express 后端服务 (端口 3010) |
-| `npm run prepare` | 初始化 Husky git hooks |
+| `pnpm dev` | 启动 Vite 开发服务器 (端口 3000) |
+| `pnpm build` | 构建所有 workspace 包 |
+| `pnpm type-check` | TypeScript 类型检查 |
+| `pnpm service` | 启动 Express 后端服务 (端口 3010) |
+| `pnpm prepare` | 初始化 Husky git hooks |
 
 ---
 
