@@ -13,3 +13,8 @@ export type AddTaskAction = {
   type: "tasks/addTask";
   payload: { text: string };
 };
+
+export type ChangeTaskAction = {
+  type: "tasks/changeTask";
+  payload: { id: string; text?: string; done?: boolean };
+};
