@@ -18,7 +18,7 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "@efanworks/tasks-types": "^1.0.1",
+    "@efanworks/tasks-types": "workspace:^",
     "typescript": "^6.0.3"
   },
   "keywords": [],

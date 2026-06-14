@@ -1,0 +1,9 @@
+packages:
+  - 'packages/*'
+allowBuilds:
+  '@parcel/watcher': set this to true or false
+  core-js: set this to true or false
+  esbuild: set this to true or false
+minimumReleaseAgeExclude:
+  - '@efanworks/tasks-api@1.0.1'
+  - '@efanworks/tasks-types@1.0.3-alpha.0'
