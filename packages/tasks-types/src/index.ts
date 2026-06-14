@@ -8,3 +8,8 @@ export type MountedFn<T extends string = string> = (
   root: HTMLDivElement | null,
   path?: T,
 ) => void;
+
+export type AddTaskAction = {
+  type: "tasks/addTask";
+  payload: { text: string };
+};
