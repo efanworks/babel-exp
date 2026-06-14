@@ -1,6 +1,6 @@
 {
   "name": "@efanworks/tasks-api",
-  "version": "1.0.1-alpha.0",
+  "version": "1.0.1",
   "description": "Tasks API",
   "exports": {
     ".": {
@@ -18,7 +18,7 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "@efanworks/tasks-types": "^1.0.1-alpha.1",
+    "@efanworks/tasks-types": "^1.0.1",
     "typescript": "^6.0.3"
   },
   "keywords": [],

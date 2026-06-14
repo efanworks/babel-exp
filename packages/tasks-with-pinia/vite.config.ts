@@ -15,7 +15,7 @@ export default defineConfig({
       fileName: "index",
     },
     rollupOptions: {
-      external: Object.keys(pkg.devDependencies ?? {}),
+      external: [...Object.keys(pkg.dependencies ?? {})],
       output: {
         globals: {
           vue: "Vue",

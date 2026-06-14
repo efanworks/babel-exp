@@ -1,6 +1,6 @@
 {
   "name": "@efanworks/tasks-with-pinia",
-  "version": "1.0.1-alpha.1",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -27,9 +27,9 @@
   "dependencies": {
     "pinia": "^3.0.4",
     "vue": "^3.5.38",
-    "@efanworks/tasks-api": "^1.0.1-alpha.0"
+    "@efanworks/tasks-api": "^1.0.1"
   },
   "devDependencies": {
-    "@efanworks/tasks-types": "^1.0.1-alpha.1"
+    "@efanworks/tasks-types": "^1.0.1"
   }
 }
