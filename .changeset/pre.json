@@ -4,7 +4,7 @@
   "initialVersions": {
     "@efanworks/tasks-api": "1.0.1",
     "@efanworks/tasks-service": "1.0.1",
-    "@efanworks/tasks-types": "1.0.2",
+    "@efanworks/tasks-types": "1.0.3-alpha.0",
     "@efanworks/tasks-with-pinia": "1.0.1",
     "@efanworks/tasks-with-redux": "1.0.2",
     "@efanworks/tasks-with-zustand": "1.0.2"
