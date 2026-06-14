@@ -1,6 +1,6 @@
 {
   "name": "@efanworks/tasks-with-redux",
-  "version": "1.0.2-alpha.0",
+  "version": "1.0.2",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -24,7 +24,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@efanworks/tasks-api": "^1.0.1-alpha.0",
+    "@efanworks/tasks-api": "^1.0.1",
     "@reduxjs/toolkit": "^2.12.0",
     "react-error-boundary": "^6.1.2",
     "react-redux": "^9.3.0"
@@ -33,7 +33,7 @@
     "@babel/preset-env": "^7.29.7",
     "@babel/preset-react": "^7.29.7",
     "@babel/preset-typescript": "^7.29.7",
-    "@efanworks/tasks-types": "^1.0.1-alpha.1",
+    "@efanworks/tasks-types": "^1.0.1",
     "@rollup/plugin-babel": "^7.1.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "rollup": "^4.61.1"

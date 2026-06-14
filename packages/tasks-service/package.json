@@ -1,12 +1,13 @@
 {
   "name": "@efanworks/tasks-service",
-  "version": "1.0.1-alpha.2",
+  "version": "1.0.1",
   "description": "",
   "main": "service.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node --import tsx src/service.ts",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "build": "echo \"do no need build\""
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +21,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "@efanworks/tasks-types": "^1.0.1-alpha.1"
+    "@efanworks/tasks-types": "^1.0.1"
   }
 }
