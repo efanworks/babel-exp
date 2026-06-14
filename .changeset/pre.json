@@ -10,6 +10,7 @@
     "@efanworks/tasks-with-zustand": "1.0.2"
   },
   "changesets": [
+    "fresh-cars-lick",
     "rich-foxes-hunt"
   ]
 }
