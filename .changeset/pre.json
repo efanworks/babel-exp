@@ -9,5 +9,7 @@
     "@efanworks/tasks-with-redux": "1.0.2",
     "@efanworks/tasks-with-zustand": "1.0.2"
   },
-  "changesets": []
+  "changesets": [
+    "hot-balloons-lick"
+  ]
 }

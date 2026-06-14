@@ -2,7 +2,7 @@
 
 ## 项目概述
 
-这是一个 monorepo 项目，使用 npm workspaces 管理多个子包。主项目使用 Vite 开发，包含 React 组件库和多个独立发布的 workspace 子包。
+这是一个 monorepo 项目，使用 pnpm workspaces 管理多个子包。
 
 ## 项目结构
 
@@ -34,17 +34,18 @@ babel-exp/
 
 | 命令 | 说明 |
 |------|------|
-| `npm run dev` | 启动 Vite 开发服务器 (端口 3000) |
-| `npm run build` | 构建所有 workspace 包 |
-| `npm run type-check` | TypeScript 类型检查 (`tsc --noEmit`) |
-| `npm run service` | 启动 Express 后端服务 |
-| `npm run prepare` | 初始化 Husky git hooks |
+| `pnpm dev` | 启动 Vite 开发服务器 (端口 3000) |
+| `pnpm build` | 构建所有 workspace 包 |
+| `pnpm type-check` | TypeScript 类型检查 (`tsc --noEmit`) |
+| `pnpm service` | 启动 Express 后端服务 |
+| `pnpm prepare` | 初始化 Husky git hooks |
 
 ## 注意事项
 
-- 依赖安装在根目录，npm 会自动提升子包依赖
-- 子包无需单独 `npm install`
-- lock 文件只在根目录
+- 依赖安装在根目录，pnpm 通过 symlink 链接 workspace 包
+- 子包无需单独 `pnpm install`；内部依赖使用 `workspace:^` 协议
+- lock 文件只在根目录：`pnpm-lock.yaml`
+- 发布使用 Changesets：`npx changeset add` → `npx changeset version` → `npx changeset publish`
 - 主项目构建输出到 `dist/` 目录
 - 已配置 Husky + lint-staged 自动格式化 (Prettier + ESLint)
-- 如需构建单个子包，可在对应包目录下执行 `npm run build`
+- 如需构建单个子包，可在对应包目录下执行 `pnpm build`
