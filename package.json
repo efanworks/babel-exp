@@ -7,14 +7,6 @@
     ".": {
       "import": "./lib/index.js",
       "require": "./lib/index.js"
-    },
-    "./components": {
-      "import": "./lib/components/index.js",
-      "types": "./lib/types/components/index.d.ts"
-    },
-    "./mount": {
-      "import": "./lib/vueComponents/index.js",
-      "types": "./lib/vueComponents/index.d.ts"
     }
   },
   "browserslist": [
@@ -91,8 +83,5 @@
     "uuid": "^14.0.0",
     "vue": "^3.5.35",
     "zustand": "^5.0.14"
-  },
-  "workspaces": [
-    "packages/*"
-  ]
+  }
 }

@@ -24,14 +24,14 @@
     "access": "public"
   },
   "dependencies": {
-    "@efanworks/tasks-api": "^1.0.1"
+    "@efanworks/tasks-api": "workspace:^"
   },
   "peerDependencies": {
     "react": "^19.2.7",
     "zustand": "^5.0.14"
   },
   "devDependencies": {
-    "@efanworks/tasks-types": "^1.0.3-alpha.0",
+    "@efanworks/tasks-types": "workspace:^",
     "tsup": "^8.5.1",
     "typescript": "^6.0.3"
   }

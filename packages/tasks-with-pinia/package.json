@@ -25,11 +25,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@efanworks/tasks-api": "workspace:^",
     "pinia": "^3.0.4",
-    "vue": "^3.5.38",
-    "@efanworks/tasks-api": "^1.0.1"
+    "vue": "^3.5.38"
   },
   "devDependencies": {
-    "@efanworks/tasks-types": "^1.0.3-alpha.0"
+    "@efanworks/tasks-types": "workspace:^"
   }
 }
