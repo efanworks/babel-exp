@@ -30,6 +30,6 @@
     "@efanworks/tasks-api": "^1.0.1"
   },
   "devDependencies": {
-    "@efanworks/tasks-types": "^1.0.1"
+    "@efanworks/tasks-types": "^1.0.3-alpha.0"
   }
 }

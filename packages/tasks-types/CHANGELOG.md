@@ -1,5 +1,11 @@
 # @efanworks/tasks-types
 
+## 1.0.3-alpha.0
+
+### Patch Changes
+
+- d2666a0: 新增AddTaskAction类型
+
 ## 1.0.2
 
 ### Patch Changes
