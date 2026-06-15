@@ -1,5 +1,11 @@
 # @efanworks/tasks-types
 
+## 1.0.5
+
+### Patch Changes
+
+- e30d1bb: 新增tasks-with-mobx package
+
 ## 1.0.4
 
 ### Patch Changes

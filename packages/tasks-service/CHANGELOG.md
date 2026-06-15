@@ -1,5 +1,11 @@
 # @efanworks/tasks-service
 
+## 1.0.3
+
+### Patch Changes
+
+- e30d1bb: 新增tasks-with-mobx package
+
 ## 1.0.2
 
 ### Patch Changes
