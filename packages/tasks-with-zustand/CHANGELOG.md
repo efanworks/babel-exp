@@ -1,5 +1,11 @@
 # @efanworks/tasks-with-zustand
 
+## 1.0.5
+
+### Patch Changes
+
+- 056e5c4: 移除不存在的组件导入 Counter
+
 ## 1.0.4
 
 ### Patch Changes
