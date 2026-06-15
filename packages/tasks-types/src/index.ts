@@ -4,10 +4,7 @@ export type Task = {
   text: string;
 };
 
-export type MountedFn<T extends string = string> = (
-  root: HTMLDivElement | null,
-  path?: T,
-) => void;
+export type MountedFn = (root: HTMLDivElement | null, path?: string) => void;
 
 export type AddTaskAction = {
   type: "tasks/addTask";
