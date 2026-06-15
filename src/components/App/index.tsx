@@ -21,6 +21,11 @@ const menuItems = [
     key: "/tasks-with-pinia",
     label: "Tasks for Pinia",
     path: "/tasks-with-pinia"
+  },
+  {
+    key: "/tasks-with-mobx",
+    label: "Tasks for Mobx",
+    path: "/tasks-with-mobx"
   }
 ];
 

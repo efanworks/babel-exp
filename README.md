@@ -23,9 +23,6 @@
 | **Zustand** | React | tsup | 轻量 Hooks 式 | 中小型应用、组件级状态 |
 | **Redux Toolkit** | React | Rollup | 约定式 + Immer | 大型应用、复杂状态逻辑 |
 | **Pinia** | Vue 3 | Vite | Composition API | Vue 3 官方推荐 |
-| **MobX** | React (src) | Babel | 响应式/可变 | 数据模型驱动的应用 |
-
-> 注：另外还有一个 `useSyncExternalStore` 的 Counter 示例（`tasks-with-zustand`），用于验证 React 18+ 的外部存储订阅能力。
 
 ---
 
@@ -57,9 +54,8 @@ babel-exp/
 │   │
 │   ├── tasks-with-zustand/       # Zustand 实现 (tsup)
 │   │   ├── src/store/
-│   │   │   ├── useTasks.ts       # Zustand store（异步 CRUD Action）
-│   │   │   └── counter.ts        # useSyncExternalStore 示例
-│   │   └── src/components/       # Tasks / TaskList / TaskItem / AddTask / Counter
+│   │   │   └── useTasks.ts       # Zustand store（异步 CRUD Action）
+│   │   └── src/components/       # Tasks / TaskList / TaskItem / AddTask
 │   │
 │   ├── tasks-with-redux/         # Redux Toolkit 实现 (Rollup)
 │   │   ├── src/store/
@@ -86,16 +82,16 @@ babel-exp/
 
 ## 🧩 状态库对比总览
 
-| 维度 | Zustand | Redux Toolkit | Pinia | MobX |
-|------|---------|---------------|-------|------|
-| **样板代码** | 极少（~30 行） | 中等（Slice + Thunk） | 少（defineStore） | 少（class + makeObservable） |
-| **状态修改** | `set((state) => {...})` 不可变 | `createSlice` + Immer 不可变 | `this.xxx =` 直接赋值（可变） | `@observable` 自动追踪 |
-| **异步处理** | 直接在 Action 中 `await` | `createAsyncThunk` 或 RTK Query | 直接在 Action 中 `await` | `@action` + `flow` |
-| **TypeScript** | 泛型推导，类型良好 | 类型完整但复杂 | 内置，自动推导 | 需额外装饰器配置 |
-| **学习曲线** | ⭐（几乎零门槛） | ⭐⭐⭐（概念较多） | ⭐⭐ | ⭐⭐⭐（响应式模型） |
-| **框架绑定** | 独立（可脱离 React 使用） | React 优先（但有独立 core） | Vue 3 专属 | 独立（可脱离 React） |
-| **适用场景** | 中小型应用、快速原型 | 大型团队、复杂状态逻辑 | Vue 3 项目首选 | 数据模型复杂的应用 |
-| **Bundle 体积** | ~2KB | ~12KB + React Redux | ~9KB + Vue | ~16KB |
+| 维度 | Zustand | Redux Toolkit | Pinia |
+|------|---------|---------------|-------|
+| **样板代码** | 极少（~30 行） | 中等（Slice + Thunk） | 少（defineStore） |
+| **状态修改** | `set((state) => {...})` 不可变 | `createSlice` + Immer 不可变 | `this.xxx =` 直接赋值（可变） |
+| **异步处理** | 直接在 Action 中 `await` | `createAsyncThunk` 或 RTK Query | 直接在 Action 中 `await` |
+| **TypeScript** | 泛型推导，类型良好 | 类型完整但复杂 | 内置，自动推导 |
+| **学习曲线** | ⭐（几乎零门槛） | ⭐⭐⭐（概念较多） | ⭐⭐ |
+| **框架绑定** | 独立（可脱离 React 使用） | React 优先（但有独立 core） | Vue 3 专属 |
+| **适用场景** | 中小型应用、快速原型 | 大型团队、复杂状态逻辑 | Vue 3 项目首选 |
+| **Bundle 体积** | ~2KB | ~12KB + React Redux | ~9KB + Vue |
 
 ### 各方案的核心差异
 
@@ -104,8 +100,6 @@ babel-exp/
 **Redux Toolkit** — 提供完整的架构约束：Slice 定义状态/Reducer、createAsyncThunk 处理异步、configureStore 集成中间件。适合多人协作的大项目。
 
 **Pinia** — 与 Vue 3 Composition API 深度集成。支持 Options API（如本例）和 Setup Store 两种写法，自动推导 TypeScript 类型，devtools 开箱即用。
-
-**MobX** — 响应式编程模型（类似于 Vue 的响应式系统），通过 `observable` 追踪数据的每次变化。适合数据模型层次深、关系复杂的场景。
 
 ---
 
@@ -135,7 +129,6 @@ pnpm build
 | `/tasks-zustand` | Zustand |
 | `/tasks-with-redux` | Redux Toolkit |
 | `/tasks-with-pinia` | Pinia（通过 Mounter 嵌入 React） |
-| `/useSyncExternalTest` | useSyncExternalStore Counter |
 
 ---
 

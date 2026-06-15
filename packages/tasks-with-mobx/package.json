@@ -1,0 +1,33 @@
+{
+  "name": "@efanworks/tasks-with-mobx",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsup && tsc"
+  },
+  "exports": {
+    "types": "./dist/types/index.d.ts",
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "dependencies": {
+    "@efanworks/tasks-api": "workspace:^",
+    "mobx": "^6.16.1",
+    "mobx-react-lite": "^4.1.1",
+    "react-error-boundary": "^6.1.2"
+  },
+  "devDependencies": {
+    "@efanworks/tasks-types": "workspace:^",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3"
+  }
+}
