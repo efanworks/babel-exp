@@ -5,13 +5,13 @@ export default defineConfig(() => ({
   format: ["esm", "cjs"],
   splitting: false,
   sourcemap: true,
-  clean: true,
-  minify: true,
-  // 确保 react 不会被打包
-  external: ["react", "react-dom", "zustand"],
+  clean: false,
+  minify: false,
   outExtension({ format }) {
     return {
       js: format === "esm" ? ".mjs" : ".cjs",
     };
   },
+  // 不打包 node_modules 里的依赖
+  skipNodeModulesBundle: true,
 }));
