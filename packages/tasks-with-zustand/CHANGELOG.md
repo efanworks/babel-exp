@@ -1,5 +1,11 @@
 # @efanworks/tasks-with-zustand
 
+## 1.0.6
+
+### Patch Changes
+
+- 8f3d4d1: 实现package开发调试模式：js构建和ts dts构建都是监听模式
+
 ## 1.0.5
 
 ### Patch Changes

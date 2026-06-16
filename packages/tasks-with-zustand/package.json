@@ -1,10 +1,13 @@
 {
   "name": "@efanworks/tasks-with-zustand",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsup && tsc",
+    "dev:js": "tsup --watch",
+    "dev:types": "tsc --watch",
+    "dev": "concurrently \"pn dev:js\" \"pn dev:types\"",
+    "build": "rm -rf dist && tsup && tsc",
     "prepublishOnly": "npm run build"
   },
   "author": "",
@@ -32,6 +35,7 @@
   },
   "devDependencies": {
     "@efanworks/tasks-types": "workspace:^",
+    "concurrently": "^10.0.3",
     "tsup": "^8.5.1",
     "typescript": "^6.0.3"
   }
