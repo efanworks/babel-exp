@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { Button, Input, Space } from "antd";
 import { useTasks } from "../../store/useTasks";
 
 export const AddTask = () => {
   const [newTaskText, setNewTaskText] = useState("");
-  const addTask = useTasks(state => state.addTask);
+  const addTask = useTasks((state) => state.addTask);
 
   const handleAddTask = async () => {
     await addTask(newTaskText);
@@ -11,13 +12,13 @@ export const AddTask = () => {
   };
 
   return (
-    <>
-      <input
+    <Space.Compact>
+      <Input
         type="text"
         value={newTaskText}
         onChange={(e) => setNewTaskText(e.target.value)}
       />
-      <button onClick={handleAddTask}>add</button>
-    </>
+      <Button type="primary" onClick={handleAddTask}>add</Button>
+    </Space.Compact>
   );
 };
