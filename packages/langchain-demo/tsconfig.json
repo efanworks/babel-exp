@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "types": ["node"],
+    // tsup 会自动帮你引入 React 运行时的组件渲染函数（如 react/jsx-runtime），不需要在文件里手动 import React。
+    // "jsx": "react"：这是老版本 React 的做法，tsup 会把 <div /> 编译成 React.createElement('div')。这就要求所有 .tsx 文件顶部必须写 import React from 'react'
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": false,
+    "declarationDir": "dist/types",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": false,
+    "esModuleInterop": true,
+    "ignoreDeprecations": "6.0"
+  },
+  "include": ["src/**/*"]
+}
